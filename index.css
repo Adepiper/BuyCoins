@@ -1,0 +1,249 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: Helvetica, sans-serif;
+}
+
+nav {
+   background-color: #211f1f;
+   color: white;
+}
+
+nav .container {
+   width: 95%;
+   margin: auto;
+   padding: 5px;
+}
+
+.nav-brand {
+   display: flex;
+   height: 100%;
+   /* align-items: center; */
+}
+
+.nav-brand > div {
+   margin-right: 20px;
+}
+
+nav .logo > img {
+   background-color: white;
+   border-radius: 50%;
+   height: 30px;
+}
+
+.search-bar {
+   position: relative;
+}
+
+.search-bar input {
+   padding: 5px;
+   background-color: transparent;
+   border: 0.1px solid rgba(255, 255, 255, 0.279);
+   width: 100%;
+   border-radius: 5px;
+   font-size: 14px;
+   color: white;
+}
+
+.search-bar button {
+   position: absolute;
+   top: 40%;
+   right: 3%;
+   transform: translateY(-50%);
+   padding: 0 5px;
+   background-color: transparent;
+   border: 0.1px solid rgba(255, 255, 255, 0.279);
+   color: rgba(255, 255, 255, 0.279);
+}
+
+.user-container {
+   width: 90%;
+   margin: auto;
+   display: flex;
+   padding: 30px 0;
+}
+
+.user-info {
+   width: 20%;
+   padding-right: 20px;
+}
+
+.user-description {
+   padding-top: 20px;
+   line-height: 20px;
+   font-size: 15px;
+   color: rgba(0, 0, 0, 0.843);
+}
+
+.user-image img {
+   border-radius: 50%;
+   height: 250px;
+   width: 250px;
+   object-fit: cover;
+   object-position: top;
+}
+.user-repos {
+   width: 80%;
+}
+
+.user-repos > p {
+   padding: 20px 0;
+   font-weight: 600;
+   border-top: 0.1px solid rgba(0, 0, 0, 0.1);
+   width: 100%;
+   font-size: 14px;
+   color: rgba(0, 0, 0, 0.728);
+}
+
+.repository {
+   padding: 20px 0;
+   border-top: 0.1px solid rgba(0, 0, 0, 0.1);
+   position: relative;
+   color: rgba(0, 0, 0, 0.53);
+}
+
+.repository .repo-info {
+   display: flex;
+   padding: 10px 0;
+   align-items: center;
+}
+.repository .repo-info > div,
+.repository .repo-info > p {
+   margin-right: 20px;
+   font-size: 12px;
+   text-align: center;
+}
+.repository .repo-info > p {
+   text-align: left;
+}
+.language {
+   display: flex;
+   height: 100%;
+   align-items: center;
+   padding-right: 5px;
+}
+
+.language > div {
+   height: 10px;
+   width: 10px;
+   background-color: red;
+   border-radius: 50%;
+   margin-right: 5px;
+}
+
+.star-repo {
+   position: absolute;
+   right: 3%;
+   top: 50%;
+   transform: translateY(-50%);
+   padding: 5px;
+}
+
+.repo-details {
+   width: 60%;
+}
+.repo-details a {
+   color: rgb(30, 30, 213);
+   display: block;
+   padding: 7px 0;
+   text-decoration: none;
+}
+.repo-details p {
+   font-size: 14px;
+}
+
+.loader-container {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100vh;
+   width: 100vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(0, 0, 0, 0.476);
+   display: none;
+}
+
+#loader {
+   width: 120px;
+   height: 120px;
+   border: 5px solid #f3f3f3;
+   border-radius: 50%;
+   border-top: 5px solid rgb(40, 40, 78);
+   -webkit-animation: spin 0.5s linear infinite;
+   animation: spin 0.5s linear infinite;
+   z-index: 10000;
+}
+
+@media (max-width: 1300px) {
+   .user-image img {
+      height: 150px;
+      width: 150px;
+   }
+   .user-info {
+      width: 30%;
+   }
+}
+
+@media (max-width: 991px) {
+   .repository .repo-info > div,
+   .repository .repo-info > p {
+      margin-right: 3px;
+      min-width: 10%;
+      font-size: 12px;
+      /* border: 1px solid red; */
+   }
+   .repo-details {
+      width: 70%;
+   }
+}
+
+@media (max-width: 767px) {
+   .user-container {
+      width: 90%;
+
+      flex-direction: column;
+   }
+   .user-info {
+      width: 100%;
+      padding-right: 0;
+      padding: 10px 0;
+   }
+
+   .user-image {
+      text-align: center;
+   }
+   .user-repos {
+      width: 100%;
+   }
+   .repo-details {
+      width: 80%;
+   }
+
+   .star-repo {
+      right: 1%;
+   }
+}
+
+@-webkit-keyframes spin {
+   0% {
+      -webkit-transform: rotate(0deg);
+   }
+   100% {
+      -webkit-transform: rotate(360deg);
+   }
+}
+
+@keyframes spin {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+}
