@@ -1,4 +1,4 @@
-const AUTHORIZATION_TOKEN = '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';
+const AUTHORIZATION_TOKEN = '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';
 const userContainer = document.querySelector('.user-container');
 const form = document.querySelector('form');
 const loader = document.querySelector('.loader-container');
