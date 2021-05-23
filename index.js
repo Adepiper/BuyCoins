@@ -1,4 +1,4 @@
-const AUTHORIZATION_TOKEN = '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';
+
 const userContainer = document.querySelector('.user-container');
 const form = document.querySelector('form');
 const loader = document.querySelector('.loader-container');
@@ -11,8 +11,7 @@ const getUserData = async (user) => {
          method: 'POST',
          headers: {
             'Content-type': 'Application/json',
-            'User-Agent': 'request',
-            Authorization: `token ${AUTHORIZATION_TOKEN}`,
+            
          },
 
          body: JSON.stringify({
