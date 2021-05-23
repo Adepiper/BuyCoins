@@ -1,4 +1,4 @@
-const AUTHORIZATION_TOKEN = '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';
+const AUTHORIZATION_TOKEN = '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';
 const userContainer = document.querySelector('.user-container');
 const form = document.querySelector('form');
 const loader = document.querySelector('.loader-container');
@@ -50,7 +50,7 @@ const getUserData = async (user) => {
       addDataToDom(data);
    } catch (err) {
       removeLoader();
-      errorMessageEl(`Something went wrong`);
+      userContainer.innerHTML = errorMessageEl(`Something went wrong`);
    }
 };
 
