@@ -1,4 +1,4 @@
-
+const AUTHORIZATION_TOKEN = '';
 const userContainer = document.querySelector('.user-container');
 const form = document.querySelector('form');
 const loader = document.querySelector('.loader-container');
@@ -11,7 +11,8 @@ const getUserData = async (user) => {
          method: 'POST',
          headers: {
             'Content-type': 'Application/json',
-            
+            'User-Agent': 'request',
+            Authorization: `token ${AUTHORIZATION_TOKEN}`,
          },
 
          body: JSON.stringify({
@@ -91,9 +92,13 @@ const userDetailsEl = (data) => {
 
 const repositoryEl = (repositories) =>
    repositories
-      .map(
-         (repository) =>
-            `<div class="repository">
+      .map((repository) => {
+         const splitedDate = repository.updatedAt.split('T')[0];
+         const date = new Date(splitedDate);
+         const newDate = date.toDateString().split(' ');
+         const finalDate = newDate.slice(1, newDate.length).join(' ');
+
+         return `<div class="repository">
                      <div class="repo-details">
                         <a href="${repository.url}" target="_blank">
                            ${repository.name}
@@ -120,14 +125,15 @@ const repositoryEl = (repositories) =>
                            <i class="fas fa-code-branch"></i>
                            <span>${repository.forkCount}</span>
                         </div>
-                        <p>${repository.updatedAt}</p>
+                        <p>${finalDate}</p>
                      </div>
 
                      <button class="star-repo">
                         <i class="far fa-star"></i> <span>Star</span>
                      </button>
-                  </div>`
-      )
+                  </div>`;
+      })
+
       .join('');
 
 form.addEventListener('submit', function (e) {
@@ -165,5 +171,3 @@ const errorMessageEl = (error) =>
 
 const addLoader = () => (loader.style.display = 'flex');
 const removeLoader = () => (loader.style.display = 'none');
-
-// getUserData('ireade');
